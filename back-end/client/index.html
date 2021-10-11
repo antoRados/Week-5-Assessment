@@ -6,6 +6,8 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="randomFortuneButton">Get a random fortune</button>
+    <button id="randomRequest">Receive a random request</button>
+    <button id="randomFacts">Receive a random fact about the author</button>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -26,5 +28,23 @@
             });
       };
     </script>
+    <script>
+      document.getElementById("randomRequestButton").onclick = function () {
+        axios.get("http://localhost:4000/api/request/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+        <script>
+          document.getElementById("randomFactsButton").onclick = function () {
+            axios.get("http://localhost:4000/api/facts/")
+                .then(function (response) {
+                  const data = response.data;
+                  alert(data);
+                });
+          };
+        </script>
   </body>
 </html>

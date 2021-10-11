@@ -40,4 +40,30 @@ app.get("/api/fortune", (req, res) => {
   
 });
 
+app.get("/api/request", (req, res) => {
+  const request = ["Do 100 pushups!",
+					 "Do 50 pullups!",
+					 "Stand while working on lab!",
+           "Stay hydrated!",
+           "Get another drink of water!",
+  ];
+  let randomIndex = Math.floor(Math.random() * request.length);
+  let randomRequest = fortunes[randomIndex];
+
+  res.status(200).send(randomRequest);
+});
+
+app.get("/api/facts", (req, res) => {
+  const facts = ["I am 31 years old",
+					 "I speak 3 languages",
+					 "I'm 6'0 tall",
+           "I was born in Bosnia",
+           "I studied Computer Science at BGSU",
+  ];
+  let randomIndex = Math.floor(Math.random() * facts.length);
+  let randomFacts = facts[randomIndex];
+
+  res.status(200).send(randomFacts);
+});
+
 app.listen(4000, () => console.log("Server running on 4000"));
